@@ -1,6 +1,6 @@
 # CADI Conversion Source Tracker
 
-This JavaScript script automatically stores specified URL parameters as cookies in the user's browser. It is designed for tracking conversion-related parameters such as `gclid` (Google Click ID) and `cadi_source` over a specified duration.
+This JavaScript script automatically stores specified URL parameters as cookies in the user's browser. It is designed for tracking conversion-related parameters such as `gclid` (Google Click ID) and `affiliate` over a specified duration.
 
 ## Features
 - Automatically captures and stores specified URL parameters as cookies.
