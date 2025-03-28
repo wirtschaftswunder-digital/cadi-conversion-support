@@ -1,9 +1,10 @@
-var PREFIX = 'ccs_' // CADI Conversion Support
-var PARAM_KEYS_TO_STORE_WITHOUT_PREFIX = ['gclid', 'affiliate']
-var PARAM_KEYS_TO_STORE = PARAM_KEYS_TO_STORE_WITHOUT_PREFIX.map(
-  key => PREFIX + key
-)
-var DURATION_DAYS = 7
+window.CADI_PREFIX = 'ccs_' // CADI Conversion Support
+window.CADI_PARAM_KEYS_TO_STORE_WITHOUT_PREFIX = ['gclid', 'affiliate']
+window.CADI_PARAM_KEYS_TO_STORE =
+  window.CADI_PARAM_KEYS_TO_STORE_WITHOUT_PREFIX.map(
+    key => window.CADI_PREFIX + key
+  )
+window.CADI_DURATION_DAYS = 7
 
 try {
   window.addEventListener('load', storeParams)
@@ -13,7 +14,7 @@ try {
 
 function storeParams () {
   const params = new URLSearchParams(window.location.search)
-  PARAM_KEYS_TO_STORE.forEach(key => {
+  window.CADI_PARAM_KEYS_TO_STORE.forEach(key => {
     if (!params.has(key)) return
     const paramValue = params.get(key)
     if (!paramValue) return
@@ -22,7 +23,7 @@ function storeParams () {
 }
 
 function storeParamValue (key, value) {
-  setCookie(PREFIX + key, value, DURATION_DAYS)
+  setCookie(window.CADI_PREFIX + key, value, window.CADI_DURATION_DAYS)
 }
 
 function setCookie (name, value, days) {
@@ -37,10 +38,10 @@ function setCookie (name, value, days) {
 
 function loadCadiTrackingParams () {
   const params = {}
-  for (const key of PARAM_KEYS_TO_STORE) {
+  for (const key of window.CADI_PARAM_KEYS_TO_STORE) {
     const cookieValue = getCookie(key)
     if (!cookieValue) continue
-    const paramName = key.replace(PREFIX, '')
+    const paramName = key.replace(window.CADI_PREFIX, '')
     params[paramName] = cookieValue
   }
   if (Object.keys(params).length === 0) return null
