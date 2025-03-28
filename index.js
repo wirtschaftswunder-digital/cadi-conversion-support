@@ -1,9 +1,4 @@
-const PREFIX = 'ccs_' // CADI Conversion Support
-const PARAM_KEYS_TO_STORE_WITHOUT_PREFIX = ['gclid', 'affiliate']
-const PARAM_KEYS_TO_STORE = PARAM_KEYS_TO_STORE_WITHOUT_PREFIX.map(
-  key => PREFIX + key
-)
-const DURATION_DAYS = 7
+import { DURATION_DAYS, PARAM_KEYS_TO_STORE, PREFIX } from "./config"
 
 try {
   window.addEventListener('load', storeParams)
