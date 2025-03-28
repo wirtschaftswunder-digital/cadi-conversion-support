@@ -1,9 +1,9 @@
-const PREFIX = 'ccs_' // CADI Conversion Support
-const PARAM_KEYS_TO_STORE_WITHOUT_PREFIX = ['gclid', 'affiliate']
-const PARAM_KEYS_TO_STORE = PARAM_KEYS_TO_STORE_WITHOUT_PREFIX.map(
+var PREFIX = 'ccs_' // CADI Conversion Support
+var PARAM_KEYS_TO_STORE_WITHOUT_PREFIX = ['gclid', 'affiliate']
+var PARAM_KEYS_TO_STORE = PARAM_KEYS_TO_STORE_WITHOUT_PREFIX.map(
   key => PREFIX + key
 )
-const DURATION_DAYS = 7
+var DURATION_DAYS = 7
 
 try {
   window.addEventListener('load', storeParams)
