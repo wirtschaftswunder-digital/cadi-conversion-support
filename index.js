@@ -7,14 +7,14 @@ window.CADI_PARAM_KEYS_TO_STORE =
 window.CADI_DURATION_DAYS = 7
 
 try {
-  window.addEventListener('load', storeParams)
+  window.addEventListener('DOMContentLoaded', storeParams)
 } catch (error) {
   console.error(error)
 }
 
 function storeParams () {
   const params = new URLSearchParams(window.location.search)
-  window.CADI_PARAM_KEYS_TO_STORE.forEach(key => {
+  window.CADI_PARAM_KEYS_TO_STORE_WITHOUT_PREFIX.forEach(key => {
     if (!params.has(key)) return
     const paramValue = params.get(key)
     if (!paramValue) return
